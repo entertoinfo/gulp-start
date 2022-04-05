@@ -1,11 +1,31 @@
-const {src, dest, series, watch} = require('gulp');
+const {src, dest, parallel, watch} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-sass.compiler = require('node-sass');
+const concat = require ('gulp-concat');
+const browserSync = require('browser-sync').create();
 
-function defaultTask(cb) {
-    return src('app/scss/**.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(dest('./css'));
+function browsersync(){
+    browserSync.init({
+        server: {
+            baseDir: "app/"
+        }
+    });
 }
 
-exports.default = defaultTask
+function styles() {
+    return src('app/scss/**/**.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('style.min.css'))
+        .pipe(dest('./css'))
+        .pipe(browserSync.stream())
+}
+
+function watching(){
+    watch(['app/scss/**/*.scss'], styles) 
+    watch(['app/*.html']).on('change', browserSync.reload)
+}
+
+exports.styles = styles;
+exports.watching = watching;
+exports.browsersync = browsersync;
+
+exports.default = parallel('watching', 'browsersync');

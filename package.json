@@ -1,7 +1,7 @@
 {
   "name": "gulp-start",
-  "version": "1.0.0",
-  "description": "my first project",
+  "version": "0.0.2",
+  "description": "pre-assembled for easy start",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,9 @@
   "author": "Limbo",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.27.9",
     "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
     "gulp-watch": "^5.0.1",
     "node-sass": "^7.0.1",
