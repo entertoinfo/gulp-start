@@ -1,4 +1,4 @@
-const {src, dest, parallel, watch} = require('gulp');
+const {src, dest, watch, parallel} = require('gulp');
 const sass         = require('gulp-sass')(require('sass'));
 const concat       = require ('gulp-concat');
 const browserSync  = require('browser-sync').create();
@@ -15,20 +15,18 @@ function browsersync(){
 }
 
 function images(){
-    return src('app/images**/*')
-    .pipe(imagemin(
-        [
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.mozjpeg({quality: 75, progressive: true}),
-            imagemin.optipng({optimizationLevel: 5}),
-            imagemin.svgo({
-                plugins: [
-                    {removeViewBox: true},
-                    {cleanupIDs: false}
-                ]
-            })
-        ]
-        ))
+    return src('app/images/**/*')
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
     .pipe(dest('dist/images'))
 }
 
