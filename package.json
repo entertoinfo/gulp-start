@@ -1,26 +1,22 @@
 {
   "name": "gulp-start",
-  "version": "0.0.2",
-  "description": "pre-assembled for easy start",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Limbo",
+  "author": "Vadym Prokopchuk",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.27.9",
-    "glob-parent": "^6.0.2",
+    "browser-sync": "^2.26.13",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-uglify-es": "^3.0.0",
-    "gulp-watch": "^3.0.0",
-    "jquery": "^3.6.0",
-    "sass": "^1.49.11",
-    "semver-regex": "^4.0.2",
-    "trim-newlines": "^3.0.1"
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify-es": "^2.0.0",
+    "jquery": "^3.5.1"
   }
 }

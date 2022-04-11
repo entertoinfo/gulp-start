@@ -1,4 +1,7 @@
-body{
-  background-color: #000;
-  display: flex;
-}
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'libs';
+@import 'global';
+
+
